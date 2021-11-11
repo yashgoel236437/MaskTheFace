@@ -639,8 +639,8 @@ def mask_image(image_path, args):
 
 def is_image(path):
     try:
-        extensions = path[-4:]
-        image_extensions = ["png", "PNG", "jpg", "JPG"]
+        extensions = path[-5:]
+        image_extensions = ["png", "PNG", "jpeg", "JPG"]
 
         if extensions[1:] in image_extensions:
             return True 
