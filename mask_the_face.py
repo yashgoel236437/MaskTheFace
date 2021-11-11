@@ -67,15 +67,15 @@ parser.add_argument(
     "--verbose", dest="verbose", action="store_true", help="Turn verbosity on"
 )
 parser.add_argument(
-    "--write_original_image",
-    dest="write_original_image",
-    action="store_true",
-    help="If true, original image is also stored in the masked folder",
+    "--path_save",
+    type=str,
+    default="",
+    help="save path",
 )
 parser.set_defaults(feature=False)
 
 args = parser.parse_args()
-args.write_path = args.path + "_masked"
+args.write_path = args.path_save
 
 # Set up dlib face detector and predictor
 args.detector = dlib.get_frontal_face_detector()
@@ -122,7 +122,7 @@ if is_directory:
     for f in tqdm(files):
         image_path = path + "/" + f
 
-        write_path = path + "_masked"
+        write_path = args.path_save
         if not os.path.isdir(write_path):
             os.makedirs(write_path)
 
@@ -186,9 +186,6 @@ if is_directory:
                     img = masked_image[i]
                     # Write the masked image
                     cv2.imwrite(w_path, img)
-                    if args.write_original_image:
-                        # Write the original image
-                        cv2.imwrite(w_path_original, original_image)
 
             if args.verbose:
                 print(args.code_count)
