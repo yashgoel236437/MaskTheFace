@@ -357,7 +357,7 @@ def mask_face(image, face_location, six_points, angle, args, type="surgical"):
     # Apply mask
     # img_bg = cv2.bitwise_and(image, image, mask=mask_inv)
     # img_fg = cv2.bitwise_and(dst_mask, dst_mask, mask=mask)
-
+    mask_inv = cv2.bitwise_not(mask)
     img_bg = image.astype(np.float32)
     _t = mask_inv.astype(np.float32) / 255
     img_bg[:,:,0] *= _t
