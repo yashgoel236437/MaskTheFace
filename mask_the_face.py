@@ -5,8 +5,8 @@
 import argparse
 import dlib
 from utils.aux_functions import *
-
-
+print(dlib.DLIB_USE_CUDA)
+print(dlib.cuda.get_num_devices())
 
 # Command-line input setup
 parser = argparse.ArgumentParser(
