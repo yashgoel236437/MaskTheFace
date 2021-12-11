@@ -26,10 +26,10 @@ This will install the required packages in the activated Python environment.
 ```
 cd MaskTheFace
 # Generic
-python mask_the_face.py --path <path-to-file-or-dir> --mask_type <type-of-mask> --verbose --write_original_image
+python mask_the_face.py --path <path-to-file-or-dir> --mask_type <type-of-mask> --verbose -path_save <location>
 
 # Example
-python mask_the_face.py --path 'data/office.jpg' --mask_type 'N95' --verbose --write_original_image
+python mask_the_face.py --path 'data/office.jpg' --mask_type 'N95' --verbose --path_save "location"
 ```
 ![cover_photo](images/run.png)
 ### Arguments
