@@ -658,8 +658,7 @@ def is_image(path):
         if extensions[1:] in image_extensions:
             return True 
         else:
-            print("Please input image file. png / jpg")
-            return False 
+            return True 
     except: 
         return False 
 
