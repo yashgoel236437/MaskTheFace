@@ -147,7 +147,7 @@ if is_directory:
                     + split_path[1]
                 )
                 img = masked_image[i]
-                img = cv2.resize(img, (1024,1024), interpolation = cv2.INTER_AREA)
+                img = cv2.resize(img, (224,224), interpolation = cv2.INTER_AREA)
                 cv2.imwrite(w_path, img)
 
     print_orderly("Masking image directories", 60)
@@ -186,7 +186,7 @@ if is_directory:
                     w_path_original = write_path + "/" + f
                     img = masked_image[i]
                     # Write the masked image
-                    img = cv2.resize(img, (1024,1024), interpolation = cv2.INTER_AREA)
+                    img = cv2.resize(img, (224,224), interpolation = cv2.INTER_AREA)
                     cv2.imwrite(w_path, img)
 
             if args.verbose:
@@ -206,7 +206,7 @@ elif is_file:
         for i in range(len(mask)):
             w_path = write_path + "_" + mask[i] + "." + args.path.rsplit(".")[1]
             img = masked_image[i]
-            img = cv2.resize(img, (1024,1024), interpolation = cv2.INTER_AREA)
+            img = cv2.resize(img, (224,224), interpolation = cv2.INTER_AREA)
             cv2.imwrite(w_path, img)
 else:
     print("Path is neither a valid file or a valid directory")
